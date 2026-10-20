@@ -219,6 +219,75 @@
   .legal a{color:inherit}
   @media (max-width:760px){.footgrid{grid-template-columns:1fr}}
 
+
+  /* hero video */
+  .hero .bg video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+  .hero .bg video.on{opacity:1}
+
+  /* park map */
+  .mapwrap{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:start}
+  .mapcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:14px;position:relative}
+  .mapcard svg{width:100%;height:auto;display:block}
+  .mapnote{font-family:var(--cond);font-weight:600;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#7A6F5F;margin:10px 4px 0}
+  .pin{cursor:pointer}
+  .pin circle.dot{fill:var(--gold);stroke:var(--paper);stroke-width:3;transition:transform .25s var(--ease-out);transform-box:fill-box;transform-origin:center}
+  .pin text{font-family:var(--disp);font-weight:800;font-size:15px;fill:var(--soil);pointer-events:none}
+  .pin circle.ring{fill:none;stroke:var(--gold);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center}
+  .pin.active circle.dot,.pin:hover circle.dot{fill:var(--brick)}
+  .pin.active text,.pin:hover text{fill:var(--paper)}
+  .pin.active circle.ring{animation:pinpulse 1.8s var(--ease-out) infinite}
+  @keyframes pinpulse{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(2.2)}}
+  .pin:focus-visible{outline:none}.pin:focus-visible circle.dot{stroke:var(--dusk);stroke-width:4}
+  .pad{fill:#EDE6D3;stroke:#CFC3A6;stroke-width:1.2;transition:fill .3s}
+  .pad.lit{fill:var(--gold);stroke:#A88634}
+  .zone.lit{filter:drop-shadow(0 0 6px rgba(201,162,75,.9))}
+  .maptabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .maptabs button{font-family:var(--cond);font-weight:700;font-size:14.5px;letter-spacing:.1em;text-transform:uppercase;background:transparent;border:1.5px solid var(--pine);color:var(--pine);border-radius:999px;padding:7px 14px;cursor:pointer;transition:background .2s,color .2s}
+  .maptabs button[aria-selected="true"]{background:var(--pine);color:var(--cream)}
+  .maptabs button b{font-family:var(--disp);margin-right:6px}
+  .mappanel{background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .mappanel figure{aspect-ratio:3/2;overflow:hidden;background:var(--pine)}
+  .mappanel img{width:100%;height:100%;object-fit:cover}
+  .mappanel .txt{padding:20px 22px 24px}
+  .mappanel h3{font-size:24px;color:var(--pine)}
+  .mappanel p{color:#4A4237;font-size:15.5px;margin-top:8px}
+  .mappanel .facts{font-family:var(--cond);font-weight:600;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--brick);margin-top:12px}
+  @media (max-width:860px){.mapwrap{grid-template-columns:1fr}}
+
+  /* game-day calendar */
+  .cal{margin-top:44px;background:rgba(20,28,35,.6);border:1px solid rgba(246,241,227,.18);border-radius:16px;padding:26px 26px 18px;backdrop-filter:blur(3px)}
+  .calhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin-bottom:12px}
+  .calhead h3{font-size:24px;color:var(--paper)}
+  .caltabs{display:flex;gap:6px;background:rgba(246,241,227,.08);border-radius:999px;padding:4px}
+  .caltabs button{font-family:var(--cond);font-weight:700;font-size:14px;letter-spacing:.12em;text-transform:uppercase;border:0;background:transparent;color:rgba(246,241,227,.8);border-radius:999px;padding:8px 16px;cursor:pointer}
+  .caltabs button[aria-selected="true"]{background:var(--gold);color:var(--soil)}
+  .calrow{display:grid;grid-template-columns:96px 1fr auto;gap:18px;align-items:center;padding:14px 0;border-top:1px solid rgba(246,241,227,.14)}
+  .calrow:first-child{border-top:0}
+  .caldate{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.08em;line-height:1.05;color:#EFDFA9;text-align:center;border:1.5px solid rgba(239,223,169,.5);border-radius:10px;padding:8px 4px}
+  .caldate b{display:block;font-family:var(--disp);font-size:28px;letter-spacing:0;color:var(--paper)}
+  .calwho{color:var(--paper);font-family:var(--disp);font-weight:700;font-size:19px}
+  .calwho small{display:block;font-family:var(--body);font-weight:400;font-size:14px;color:rgba(246,241,227,.75);margin-top:2px}
+  .calrow .btn{padding:10px 16px;font-size:14.5px}
+  .calrow.next .caldate{background:var(--gold);border-color:var(--gold);color:var(--soil)}
+  .calrow.next .caldate b{color:var(--soil)}
+  .calfoot{font-size:13px;color:rgba(246,241,227,.65);margin-top:10px}
+  .calempty{color:rgba(246,241,227,.8);padding:12px 0}
+  @media (max-width:600px){.calrow{grid-template-columns:72px 1fr}.calrow .btn{grid-column:1 / -1;text-align:center}.caldate b{font-size:24px}}
+
+  /* cowbell */
+  .bellbtn{background:none;border:0;cursor:pointer;padding:0;display:block;width:100%}
+  .bellbtn:focus-visible{outline:3px solid var(--gold);outline-offset:6px;border-radius:12px}
+  .bellhint{font-family:var(--cond);font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#EFDFA9;text-align:center;margin-top:4px}
+  .bellcount{font-family:var(--cond);font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(239,223,169,.75);text-align:center;min-height:16px}
+  @media (max-width:900px){.bellwrap{display:block;position:relative;top:auto;right:auto;width:84px;margin:0 0 -40px 24px;padding-top:48px}}
+
+  /* phone booking bar */
+  .bookbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(253,251,244,.97);box-shadow:0 -1px 0 var(--line),0 -8px 24px rgba(58,50,44,.12);transform:translateY(110%);transition:transform .35s var(--ease-out)}
+  .bookbar.show{transform:none}
+  .bookbar a{flex:1;text-align:center;padding:13px 10px}
+  .bookbar a.call{background:var(--pine);color:var(--cream)}
+  @media (max-width:760px){.bookbar{display:flex}footer.site{padding-bottom:110px}}
+
   /* wave divider */
   .wave{display:block;width:100%;height:44px;color:var(--pine)}
   .reveal{opacity:0;transform:translateY(28px)}
@@ -297,7 +366,7 @@
 </header>
 
 <section class="hero">
-  <div class="bg" id="heroBg" role="img" aria-label="The private lake behind Lake Pointe RV Park at golden hour"></div>
+  <div class="bg" id="heroBg" role="img" aria-label="The private lake behind Lake Pointe RV Park at golden hour"><video id="heroVid" muted loop playsinline preload="none" aria-hidden="true" data-src="assets/hero-lake.mp4"></video></div>
   <div class="shade"></div>
   <div class="wrap inner">
     <svg class="badge-lg" style="--bbg:transparent;--bring:#F6F1E3;--bsky:transparent;--bwater:transparent;--bwave:#F6F1E3;--bpines:#F6F1E3;--bspark:#C9A24B" id="heroBadge"><use href="#lp-badge"/></svg>
@@ -341,8 +410,9 @@
 <section class="gameday" id="gameday">
   <div class="bg"></div>
   <div class="veil"></div>
-  <div class="bellwrap" aria-hidden="true">
-    <svg id="bell" width="120" height="120" viewBox="0 0 100 100">
+  <div class="bellwrap">
+    <button class="bellbtn" id="bellBtn" type="button" aria-label="Ring the cowbell">
+    <svg id="bell" aria-hidden="true" width="120" height="120" viewBox="0 0 100 100">
       <g stroke="#C9A24B" stroke-width="3" fill="none" stroke-linecap="round">
         <path d="M 16,38 A 26,26 0 0 1 21,24"/>
         <path d="M 84,38 A 26,26 0 0 0 79,24"/>
@@ -352,6 +422,9 @@
       <path d="M 38,29 L 30,72 Q 29.5,77 34,77 L 66,77 Q 70.5,77 70,72 L 62,29 Z" fill="#8A4A3D" stroke="#F6F1E3" stroke-width="4" stroke-linejoin="round"/>
       <circle cx="50" cy="80" r="5" fill="#F6F1E3"/>
     </svg>
+    </button>
+    <div class="bellhint">Tap to ring</div>
+    <div class="bellcount" id="bellCount" aria-live="polite"></div>
   </div>
   <div class="wrap inner">
     <div class="reveal">
@@ -370,6 +443,17 @@
         <p>Thirty-plus home dates from February to May at the loudest ballpark in college baseball, plus the big spring rivalry weekends. Spring on the lake is the park at its best.</p>
         <p class="cond">Series weekends book fast · reserve when the schedule drops</p>
       </div>
+    </div>
+    <div class="cal reveal" id="calendar">
+      <div class="calhead">
+        <h3>Upcoming home weekends</h3>
+        <div class="caltabs" role="tablist" aria-label="Season">
+          <button role="tab" id="tab-fb" aria-selected="true" aria-controls="cal-list" data-sport="football">Football</button>
+          <button role="tab" id="tab-bb" aria-selected="false" aria-controls="cal-list" data-sport="baseball">Baseball</button>
+        </div>
+      </div>
+      <div id="cal-list" role="tabpanel" aria-labelledby="tab-fb"></div>
+      <p class="calfoot">Home dates from the published 2026 football and 2027 conference baseball schedules. Kickoff times and some dates can move for TV, so check before you book.</p>
     </div>
     <div class="cta-row">
       <a class="btn" href="https://www.campspot.com/book/Lake-Pointe-RV-Park" target="_blank" rel="noopener">Book Your Weekend</a>
@@ -428,6 +512,82 @@
       </div>
     </div>
     <p class="ratenote">Rates set by the park, current as of August 2026. Book online or call for long-term availability.</p>
+  </div>
+</section>
+
+
+<section class="block" id="map">
+  <div class="wrap">
+    <div class="sechead reveal">
+      <div class="eyebrow">The Lay of the Land</div>
+      <h2>Find your spot before you pull in.</h2>
+      <p>Tap a number to see what's there. Back-ins ring the loop road, the pull-throughs sit in the middle, and the lake is just past the trees.</p>
+    </div>
+    <div class="mapwrap">
+      <div class="mapcard reveal">
+        <svg viewBox="0 0 600 660" role="group" aria-label="Illustrated map of Lake Pointe RV Park">
+          <rect width="600" height="660" fill="#E4E4CB"/>
+          <g class="zone" id="z-lake"><path d="M 360,18 C 450,6 560,20 586,58 C 600,96 560,124 492,128 C 440,132 380,118 356,92 C 336,66 330,26 360,18 Z" fill="#3E6E8C"/>
+          <path d="M 392,58 q 14,-7 28,0 q 14,7 28,0 M 430,84 q 12,-6 24,0 q 12,6 24,0" stroke="#9FC0D3" stroke-width="3" fill="none" stroke-linecap="round"/></g>
+          <g fill="#2F4A3C" opacity=".85"><path d="M 14,120 l 9,-22 l 9,22 Z"/><path d="M 30,150 l 9,-22 l 9,22 Z"/><path d="M 18,200 l 9,-22 l 9,22 Z"/><path d="M 36,250 l 9,-22 l 9,22 Z"/><path d="M 14,300 l 9,-22 l 9,22 Z"/><path d="M 32,360 l 9,-22 l 9,22 Z"/><path d="M 16,420 l 9,-22 l 9,22 Z"/><path d="M 34,470 l 9,-22 l 9,22 Z"/><path d="M 60,92 l 9,-22 l 9,22 Z"/><path d="M 96,70 l 9,-22 l 9,22 Z"/><path d="M 130,58 l 9,-22 l 9,22 Z"/><path d="M 166,52 l 9,-22 l 9,22 Z"/><path d="M 22,530 l 9,-22 l 9,22 Z"/><path d="M 560,250 l 9,-22 l 9,22 Z"/><path d="M 574,310 l 9,-22 l 9,22 Z"/><path d="M 556,370 l 9,-22 l 9,22 Z"/><path d="M 572,430 l 9,-22 l 9,22 Z"/><path d="M 558,490 l 9,-22 l 9,22 Z"/></g>
+          <path d="M 372,176 L 452,118" stroke="#FDFBF4" stroke-width="12" stroke-linecap="round"/>
+          <rect x="200" y="170" width="190" height="330" rx="95" fill="none" stroke="#FDFBF4" stroke-width="16"/>
+          <rect x="278" y="226" width="34" height="28" rx="3" fill="#C9B48A" stroke="#A8936A"/>
+          <g class="zone" id="z-gate"><rect x="214" y="476" width="162" height="104" rx="26" fill="#FDFBF4"/>
+          <rect x="287" y="578" width="16" height="44" fill="#FDFBF4"/>
+          <path d="M 270,600 L 286,600 M 304,600 L 320,600" stroke="#3A322C" stroke-width="4" stroke-linecap="round"/></g>
+          <rect x="0" y="620" width="600" height="26" fill="#C9C1AE"/>
+          <text x="22" y="638" font-family="Barlow Condensed, sans-serif" font-weight="700" font-size="14" letter-spacing="3" fill="#3A322C">ARTESIA ROAD</text>
+          <g id="z-backin">
+          <rect class="pad bi" x="157" y="140" width="42" height="20" rx="3" transform="rotate(-28 178 150)"/>
+          <rect class="pad bi" x="211" y="124" width="42" height="20" rx="3" transform="rotate(-14 232 134)"/>
+          <rect class="pad bi" x="265" y="120" width="42" height="20" rx="3" transform="rotate(-8 286 130)"/>
+          <rect class="pad bi" x="319" y="124" width="42" height="20" rx="3" transform="rotate(-4 340 134)"/>
+          <rect class="pad bi" x="111" y="204" width="42" height="20" rx="3" transform="rotate(-18 132 214)"/>
+          <rect class="pad bi" x="111" y="250" width="42" height="20" rx="3" transform="rotate(-18 132 260)"/>
+          <rect class="pad bi" x="111" y="296" width="42" height="20" rx="3" transform="rotate(-18 132 306)"/>
+          <rect class="pad bi" x="111" y="342" width="42" height="20" rx="3" transform="rotate(-18 132 352)"/>
+          <rect class="pad bi" x="111" y="388" width="42" height="20" rx="3" transform="rotate(-18 132 398)"/>
+          <rect class="pad bi" x="111" y="434" width="42" height="20" rx="3" transform="rotate(-18 132 444)"/>
+          <rect class="pad bi" x="427" y="186" width="42" height="20" rx="3" transform="rotate(14 448 196)"/>
+          <rect class="pad bi" x="427" y="224" width="42" height="20" rx="3" transform="rotate(14 448 234)"/>
+          <rect class="pad bi" x="427" y="262" width="42" height="20" rx="3" transform="rotate(14 448 272)"/>
+          <rect class="pad bi" x="427" y="300" width="42" height="20" rx="3" transform="rotate(14 448 310)"/>
+          <rect class="pad bi" x="427" y="338" width="42" height="20" rx="3" transform="rotate(14 448 348)"/>
+          <rect class="pad bi" x="427" y="376" width="42" height="20" rx="3" transform="rotate(14 448 386)"/>
+          <rect class="pad bi" x="427" y="414" width="42" height="20" rx="3" transform="rotate(14 448 424)"/>
+          <rect class="pad bi" x="427" y="452" width="42" height="20" rx="3" transform="rotate(14 448 462)"/>
+          <rect class="pad bi" x="427" y="490" width="42" height="20" rx="3" transform="rotate(14 448 500)"/>
+          <rect class="pad bi" x="389" y="550" width="42" height="20" rx="3" transform="rotate(62 410 560)"/>
+          <rect class="pad bi" x="425" y="558" width="42" height="20" rx="3" transform="rotate(70 446 568)"/>
+          <rect class="pad bi" x="461" y="556" width="42" height="20" rx="3" transform="rotate(78 482 566)"/>
+          </g>
+          <g id="z-pull">
+          <rect class="pad pt" x="244" y="300" width="102" height="20" rx="3"/>
+          <rect class="pad pt" x="244" y="334" width="102" height="20" rx="3"/>
+          <rect class="pad pt" x="244" y="368" width="102" height="20" rx="3"/>
+          <rect class="pad pt" x="244" y="402" width="102" height="20" rx="3"/>
+          </g>
+          <g class="pin" data-spot="lake" tabindex="0" role="button" aria-label="1: The lake"><circle class="ring" cx="470" cy="70" r="16"/><circle class="dot" cx="470" cy="70" r="16"/><text x="470" y="75" text-anchor="middle">1</text></g>
+          <g class="pin" data-spot="backin" tabindex="0" role="button" aria-label="2: Back-in sites"><circle class="ring" cx="132" cy="214" r="16"/><circle class="dot" cx="132" cy="214" r="16"/><text x="132" y="219" text-anchor="middle">2</text></g>
+          <g class="pin" data-spot="pull" tabindex="0" role="button" aria-label="3: Pull-through sites"><circle class="ring" cx="295" cy="356" r="16"/><circle class="dot" cx="295" cy="356" r="16"/><text x="295" y="361" text-anchor="middle">3</text></g>
+          <g class="pin" data-spot="gate" tabindex="0" role="button" aria-label="4: Gate and entrance"><circle class="ring" cx="295" cy="528" r="16"/><circle class="dot" cx="295" cy="528" r="16"/><text x="295" y="533" text-anchor="middle">4</text></g>
+        </svg>
+        <p class="mapnote">Illustrated map, not to scale</p>
+      </div>
+      <div class="reveal">
+        <div class="maptabs" role="tablist" aria-label="Places in the park">
+          <button role="tab" data-spot="lake" aria-selected="true"><b>1</b>The lake</button>
+          <button role="tab" data-spot="backin" aria-selected="false"><b>2</b>Back-ins</button>
+          <button role="tab" data-spot="pull" aria-selected="false"><b>3</b>Pull-throughs</button>
+          <button role="tab" data-spot="gate" aria-selected="false"><b>4</b>The gate</button>
+        </div>
+        <div class="mappanel" aria-live="polite">
+          <figure><img id="mapImg" src="assets/lake-dusk.webp" width="1672" height="941" alt="The lake at dusk behind the park" loading="lazy"></figure>
+          <div class="txt"><h3 id="mapTitle">The lake</h3><p id="mapText">A private lake just past the trees. Catch-and-release fishing off the upper bank, and a pretty spot come sunset.</p><div class="facts" id="mapFacts">Private · catch and release</div></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -543,9 +703,119 @@
   </div>
 </footer>
 
+<div class="bookbar" id="bookbar">
+  <a class="btn" href="https://www.campspot.com/book/Lake-Pointe-RV-Park" target="_blank" rel="noopener">Book Now</a>
+  <a class="btn call" href="tel:+13344417904">Call</a>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script>
+(function(){
+  var CS='https://www.campspot.com/book/Lake-Pointe-RV-Park';
+
+  /* booking bar: show once the hero has scrolled away */
+  var bar=document.getElementById('bookbar'), hero=document.querySelector('.hero');
+  function barCheck(){bar.classList.toggle('show',window.scrollY>hero.offsetHeight*0.7);}
+  window.addEventListener('scroll',barCheck,{passive:true}); barCheck();
+
+  /* game-day calendar */
+  var WEEKENDS={
+    football:[
+      {d:'2026-09-05',who:'Louisiana-Monroe'},{d:'2026-09-26',who:'Missouri'},{d:'2026-10-03',who:'Alabama'},
+      {d:'2026-10-24',who:'Oklahoma'},{d:'2026-11-07',who:'Vanderbilt'},{d:'2026-11-14',who:'Auburn'},{d:'2026-11-21',who:'Tennessee Tech'}
+    ].map(function(g){return {start:addDays(g.d,-1),end:addDays(g.d,1),label:g.d,who:g.who,note:'Saturday game · Friday & Saturday nights'};}),
+    baseball:[
+      {a:'2027-03-19',b:'2027-03-21',who:'Missouri'},{a:'2027-04-02',b:'2027-04-04',who:'Ole Miss'},
+      {a:'2027-04-16',b:'2027-04-18',who:'Texas A&M'},{a:'2027-04-30',b:'2027-05-02',who:'Oklahoma'},
+      {a:'2027-05-20',b:'2027-05-22',who:'Arkansas'}
+    ].map(function(g){return {start:g.a,end:addDays(g.b,1),label:g.a,who:g.who,note:'Three-game series · '+fmtShort(g.a)+' to '+fmtShort(g.b)};})
+  };
+  function parse(s){var p=s.split('-');return new Date(+p[0],+p[1]-1,+p[2]);}
+  function iso(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+  function addDays(s,n){var d=parse(s);d.setDate(d.getDate()+n);return iso(d);}
+  function fmtShort(s){return parse(s).toLocaleDateString('en-US',{month:'short',day:'numeric'});}
+  var list=document.getElementById('cal-list'), today=iso(new Date());
+  function render(sport){
+    var items=WEEKENDS[sport].filter(function(w){return w.end>today;});
+    if(!items.length){list.innerHTML='<p class="calempty">That season is wrapped up. Next season\'s dates go up as soon as they\'re announced.</p>';return;}
+    list.innerHTML=items.map(function(w,i){
+      var d=parse(w.label);
+      return '<div class="calrow'+(i===0?' next':'')+'"><div class="caldate">'+d.toLocaleDateString('en-US',{month:'short'})+'<b>'+d.getDate()+'</b>'+d.toLocaleDateString('en-US',{weekday:'short'})+'</div>'+
+        '<div class="calwho">vs. '+w.who.replace('&','&amp;')+'<small>'+w.note+(i===0?' · next up':'')+'</small></div>'+
+        '<a class="btn" target="_blank" rel="noopener" href="'+CS+'/search/'+w.start+'/'+w.end+'/guests0,2,0/list">Check this weekend</a></div>';
+    }).join('');
+  }
+  var tabs=document.querySelectorAll('.caltabs button');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected',x===t?'true':'false');});
+    list.setAttribute('aria-labelledby',t.id); render(t.dataset.sport);
+  });});
+  var fbLeft=WEEKENDS.football.some(function(w){return w.end>today;});
+  (fbLeft?tabs[0]:tabs[1]).click();
+
+  /* park map */
+  var SPOTS={
+    lake:{t:'The lake',p:'A private lake just past the trees. Catch-and-release fishing off the upper bank, and a pretty spot come sunset.',f:'Private · catch and release',img:'assets/lake-dusk.webp',alt:'The lake at dusk behind the park',lit:'z-lake'},
+    backin:{t:'Back-in sites',p:'22 back-in sites ring the loop road. They have the most room between neighbors, and every one is a 42-foot concrete pad with full hookups.',f:'22 sites · 42′ pads · 30/50 amp',img:'assets/lifestyle-golden.webp',alt:'A fifth wheel set up beside the lake at golden hour',lit:'z-backin'},
+    pull:{t:'Pull-throughs',p:'Four pull-through sites in the middle of the loop, for easy in-and-out on a one-night stop. They sit closer together than the back-ins.',f:'4 sites · full hookups',img:'assets/sites-sunny.webp',alt:'A travel trailer on a level site',lit:'z-pull'},
+    gate:{t:'The gate',p:'One way in off Artesia Road, and the gate closes at night.',f:'Gated · off Artesia Road',img:'assets/gate-afternoon.webp',alt:'The gated entrance to Lake Pointe RV Park',lit:'z-gate'}
+  };
+  var pins=document.querySelectorAll('.pin'), mtabs=document.querySelectorAll('.maptabs button');
+  var mImg=document.getElementById('mapImg'),mT=document.getElementById('mapTitle'),mP=document.getElementById('mapText'),mF=document.getElementById('mapFacts');
+  function pick(k){
+    var s=SPOTS[k];
+    pins.forEach(function(p){p.classList.toggle('active',p.dataset.spot===k);});
+    mtabs.forEach(function(b){b.setAttribute('aria-selected',b.dataset.spot===k?'true':'false');});
+    document.querySelectorAll('.pad').forEach(function(r){r.classList.remove('lit');});
+    document.querySelectorAll('.zone').forEach(function(z){z.classList.remove('lit');});
+    var z=document.getElementById(s.lit);
+    if(z.classList.contains('zone')) z.classList.add('lit'); else z.querySelectorAll('.pad').forEach(function(r){r.classList.add('lit');});
+    mImg.src=s.img; mImg.alt=s.alt; mT.textContent=s.t; mP.textContent=s.p; mF.textContent=s.f;
+  }
+  pins.forEach(function(p){
+    p.addEventListener('click',function(){pick(p.dataset.spot);});
+    p.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();pick(p.dataset.spot);}});
+  });
+  mtabs.forEach(function(b){b.addEventListener('click',function(){pick(b.dataset.spot);});});
+  pick('lake');
+
+  /* cowbell: synthesized clank, no audio file */
+  var ctx, rings=0, btn=document.getElementById('bellBtn'), cnt=document.getElementById('bellCount');
+  function clank(){
+    try{
+      ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();
+      var t=ctx.currentTime, out=ctx.createGain(); out.gain.value=.22; out.connect(ctx.destination);
+      [545,820,1213,1650].forEach(function(f,i){
+        var o=ctx.createOscillator(), g=ctx.createGain();
+        o.type=i?'square':'triangle'; o.frequency.value=f;
+        g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(i?.18/i:.6,t+.004);
+        g.gain.exponentialRampToValueAtTime(.0008,t+(i?.35:.9));
+        var bp=ctx.createBiquadFilter(); bp.type='bandpass'; bp.frequency.value=f; bp.Q.value=4;
+        o.connect(bp); bp.connect(g); g.connect(out); o.start(t); o.stop(t+1);
+      });
+    }catch(e){}
+  }
+  btn.addEventListener('click',function(){
+    clank(); rings++;
+    cnt.textContent = rings<3 ? '' : rings<8 ? rings+' rings. Keep going.' : rings+' rings. Save some for Saturday.';
+    if(window.gsap && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      gsap.killTweensOf('#bell');
+      gsap.timeline().to('#bell',{rotation:16,duration:.08,ease:'power2.out'}).to('#bell',{rotation:-13,duration:.12}).to('#bell',{rotation:9,duration:.12}).to('#bell',{rotation:-5,duration:.14}).to('#bell',{rotation:0,duration:.25,ease:'sine.out'});
+    }
+  });
+
+  /* hero lake video: skip on reduced motion, data saver or slow connections */
+  var v=document.getElementById('heroVid'), c=navigator.connection||{};
+  var skip=window.matchMedia('(prefers-reduced-motion: reduce)').matches || c.saveData || /(^|-)2g|3g/.test(c.effectiveType||'');
+  if(v && !skip){
+    window.addEventListener('load',function(){
+      v.src=v.dataset.src; v.load();
+      v.addEventListener('canplaythrough',function(){var pr=v.play(); if(pr&&pr.then) pr.then(function(){v.classList.add('on');}).catch(function(){}); else v.classList.add('on');},{once:true});
+    });
+  }
+})();
+
 (function(){
   var header = document.querySelector('header.site');
   var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 40); };
